@@ -44,7 +44,7 @@ const Gmap = () => {
 
             <div className=" container d-flex justify-content-center">
                 <LoadScript
-                    googleMapsApiKey="AIzaSyDZQTfXf6uUA_BTMQVgFUUzV-igx4KpJ4k"
+                    googleMapsApiKey="GOOGLE_MAP_API_KEY"
                 >
                     <GoogleMap
                         mapContainerStyle={{ width: "900px", height: "400px" }}
