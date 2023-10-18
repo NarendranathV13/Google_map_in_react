@@ -41,7 +41,7 @@ const Gmap = () => {
     }
     //setting up the api key and provinging places 
     const { isLoading } = useJsApiLoader({
-        googleMapsApiKey: "AIzaSyAyc5ZUajJHyx1k8TIiaVZUI5qnDwPKkss",
+        googleMapsApiKey: "GOOGLE_MAP_API_KEY",
         libraries: ['places'],
       })
     return (
