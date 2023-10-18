@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker, Autocomplete, DirectionsRenderer } from "@react-google-maps/api";
+import RawHTML from "../components/RawHTMl";
 
 const Gmap = () => {
     const [map, setMap] = useState((null))//to access google map pan functions
@@ -98,6 +99,13 @@ const Gmap = () => {
                         <Marker position={center} />
                         {direction && <DirectionsRenderer directions={direction} />}
                     </GoogleMap>
+            </div>
+            <div className=" container0">
+                <div className=" row">
+                    <div className=" col-lg-12">
+                        <RawHTML />
+                    </div>
+                </div>
             </div>
         </>
     );
