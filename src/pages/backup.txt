@@ -80,7 +80,7 @@ const Gmap = () => {
 
             <div className=" container d-flex justify-content-center">
                 <LoadScript
-                    googleMapsApiKey="AIzaSyAyc5ZUajJHyx1k8TIiaVZUI5qnDwPKkss"
+                    googleMapsApiKey="GOOGLE_MAP_API_KEY"
                     libraries={["places"]}
                 >
                     <GoogleMap
