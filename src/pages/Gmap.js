@@ -9,6 +9,7 @@ const Gmap = () => {
     const [direction, setDirection] = useState(null);
     const startRef = useRef();
     const endRef = useRef();
+    // setting center location
     const center = {
         lat: 11.0168,
         lng: 76.9558
@@ -17,18 +18,20 @@ const Gmap = () => {
         if (startRef.current.value === '' || endRef.current.value === '') {
             return;
         }
-
+// to load directions
         const directionService = new google.maps.DirectionsService();
         const directionResult = await directionService.route({
             origin: startRef.current.value,
             destination: endRef.current.value,
+            //setting travel mode to get the duration
             travelMode: google.maps.TravelMode.DRIVING
         });
         setDirection(directionResult);
+        //selecting 1st possible route to display and to show duration for the same
         setDistance(directionResult.routes[0].legs[0].distance.text);
         setDuration(directionResult.routes[0].legs[0].duration.text);
     };
-
+//clear the input fields
     const ClearField = () => {
         setDirection(null);
         setDistance('');
@@ -36,6 +39,7 @@ const Gmap = () => {
         startRef.current.value = '';
         endRef.current.value = '';
     }
+    //setting up the api key and provinging places 
     const { isLoading } = useJsApiLoader({
         googleMapsApiKey: "AIzaSyAyc5ZUajJHyx1k8TIiaVZUI5qnDwPKkss",
         libraries: ['places'],
@@ -48,6 +52,7 @@ const Gmap = () => {
                         <div className="card-body">
                             <div className="row mb-3">
                                 <div className="col-lg-4">
+                                    {/* google's autocomplete for searching locations */}
                                     <Autocomplete>
                                         <input type="text" className="form-control" placeholder="Start point" aria-label="Start point" ref={startRef} />
                                     </Autocomplete>
@@ -92,12 +97,9 @@ const Gmap = () => {
                     >
                         <Marker position={center} />
                         {direction && <DirectionsRenderer directions={direction} />}
-
                     </GoogleMap>
-         
             </div>
         </>
-
     );
 }
 
